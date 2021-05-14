@@ -1,6 +1,6 @@
 FROM node:lts-alpine
 
-RUN apk add python3 py3-pip zip \
+RUN apk add python3 py3-pip zip gcc \
   && pip3 install --upgrade pip \
   && pip3 install --upgrade awscli \
   && rm -rf /var/cache/apk/*

@@ -1,13 +1,11 @@
-FROM node:lts-alpine
+FROM python:3.8-slim
 
-RUN apk add python3 py3-pip zip gcc curl make \
-  && curl https://sh.rustup.rs -sSf | sh -s -- -y \
-  && apk add gcc musl-dev python3-dev libffi-dev openssl-dev \
-  && pip3 install --upgrade pip \
+RUN apt-get update \
+  && apt-get install -y curl \
+  && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+  && apt-get install -y nodejs \
   && pip3 install --upgrade awscli \
-  && rm -rf /var/cache/apk/*
-
-ENV PATH="/root/.cargo/bin:$PATH"
+  && apt-get clean
 
 RUN npm install --global serverless
 

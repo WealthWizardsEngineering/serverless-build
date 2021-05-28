@@ -7,7 +7,7 @@ RUN apt-get update \
   && pip3 install --upgrade awscli \
   && apt-get clean
 
-RUN npm install --global serverless
+RUN npm install --global serverless yarn
 
 RUN mkdir /build
 

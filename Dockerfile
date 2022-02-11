@@ -11,4 +11,11 @@ RUN npm install --global serverless@2.x.x yarn
 
 RUN mkdir /build
 
+RUN useradd -m wealthwizards
+
+RUN chown wealthwizards /build
+RUN chmod u+rwx /build
+
+USER wealthwizards
+
 WORKDIR /build

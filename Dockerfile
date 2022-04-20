@@ -16,6 +16,8 @@ RUN useradd -m jenkins -u 999
 RUN chown jenkins /build
 RUN chmod u+rwx /build
 
+COPY gitconfig /etc/gitconfig
+
 USER jenkins
 
 WORKDIR /build

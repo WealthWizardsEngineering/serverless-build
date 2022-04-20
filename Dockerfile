@@ -11,13 +11,7 @@ RUN npm install --global serverless@2.x.x yarn
 
 RUN mkdir /build
 
-RUN useradd -m jenkins -u 999
-
-RUN chown jenkins /build
-RUN chmod u+rwx /build
 
 COPY gitconfig /etc/gitconfig
-
-USER jenkins
 
 WORKDIR /build
